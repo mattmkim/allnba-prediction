@@ -1,4 +1,4 @@
-# Predicting AllNBA Teams
+# Predicting All NBA Teams
 
 ### Description
 
@@ -75,4 +75,8 @@ The odds ratio of PER confirms that the more holistic statistics have a greater 
 ### Visualization 
 
 I decided to visualize how the probability of being selected to the All NBA team changes due to changes in the six statistics with the highest weights. I took 20 values between the maximum and minimum value for each statistic, and determined the probability of being selected to the All NBA team for each combination of values among the six statistics. I then wrote a function that would isolate a given statistic and calculate the mean probability of being selected to the All NBA team at each value of that statistic. FTA, STL%, 3PA, TOV%, and BPM all had the same graph. 
+
+![figure_2](https://user-images.githubusercontent.com/43687112/50881966-4dfbd680-13b1-11e9-8e7b-81e08f99c473.png)
+
+Regardless of the value for the statistic, the mean probability for being selected for the All NBA team was . The WS plot displyaed different behavior, however.
 
