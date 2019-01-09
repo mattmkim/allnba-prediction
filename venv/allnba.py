@@ -84,17 +84,16 @@ modern_stats["AllNBA"] = modern_stats.apply(all_nba_label, axis=1)
 modern_stats["Year"] = modern_stats["Year"].astype(int)
 
 count = modern_stats[modern_stats.AllNBA == 1].groupby("Year").size()
-#print(count)
+print(count)
 
 # Only 14 players in 2004 had the All NBA identifier -- Metta World Peace was part of the 2003-2004 All NBA team, but
 # is not included in the 'modern_stats' dataframe
 
-#print(modern_stats[modern_stats["Year"] == 2004][modern_stats["AllNBA"] == 1])
-#print(modern_allnba[modern_allnba["Year"] == 2004])
-#print(modern_stats[modern_stats["Player"] == "Metta World Peace"])
+print(modern_stats[modern_stats["Year"] == 2004][modern_stats["AllNBA"] == 1])
+print(modern_allnba[modern_allnba["Year"] == 2004])
+print(modern_stats[modern_stats["Player"] == "Metta World Peace"])
 
-# Impute NaN values in 'modern_stat' to not lose data. Want to replace NaN values with average value for that statistic
-# of players in the same position.
+# 
 
 modern_stats = modern_stats.fillna(0)
 
@@ -113,7 +112,7 @@ x_test = test.drop(["Unnamed: 0", "Year", "Player", "Pos", "Age", "Tm", "G", "GS
 y_test = test["AllNBA"].values
 
 # use grid search to determine parameters
-'''parameters = [{'kernel': ['linear'], 'C': [0.01, 0.1, 1, 10, 100, 1000]}]
+parameters = [{'kernel': ['linear'], 'C': [0.01, 0.1, 1, 10, 100, 1000]}]
 scores = ['precision', 'recall']
 
 for score in scores:
@@ -126,7 +125,7 @@ for score in scores:
     print(clf.cv_results_)
     print("Classification Report: ")
     y_true, y_pred = y_test, clf.predict(x_test)
-    print(classification_report(y_true, y_pred))'''
+    print(classification_report(y_true, y_pred))
 
 
 sv_classifier = SVC(kernel="linear", C=0.01)
@@ -140,7 +139,7 @@ print(accuracy_score(y_test, y_predicted))
 print(classification_report(y_test, y_predicted, target_names=target_names))
 print(confusion_matrix(y_test, y_predicted))
 
-# print(sv_classifier.coef_.ravel())
+print(sv_classifier.coef_.ravel())
 
 
 def plot_feature_weights(svm, names):
@@ -160,7 +159,7 @@ def plot_feature_weights(svm, names):
 features = ['PER', 'TS%', '3PAr', 'FTr', 'ORB%', 'DRB%', 'TRB%', 'AST%', 'STL%', 'BLK%', 'TOV%', 'USG%', 'OWS', 'DWS',
             'WS', 'WS/48', 'OBPM', 'DBPM', 'BPM', 'VORP', 'FG', 'FGA', 'FG%', '3P', '3PA', '3P%', '2P', '2PA', '2P%',
             'eFG%', 'FT', 'FTA', 'FT%', 'ORB', 'DRB', 'TRB', 'AST', 'STL', 'BLK', 'TOV', 'PF', 'PTS']
-# plot_feature_weights(sv_classifier, features)
+plot_feature_weights(sv_classifier, features)
 
 # some stats had high magnitude of feature weight that were unexpected
 
@@ -186,7 +185,12 @@ def plot_single_stat_predictions(stat):
     grouped['AllNBA_pred'].plot()
     plt.show(block=False)
 
+plot_single_stat_predictions('FTA)
+plot_single_stat_predictions('STL%')
+plot_single_stat_predictions('TOV%')
+plot_single_stat_predictions('3PA')
+plot_single_stat_predictions('BPM')
+plot_single_stat_predictions('WS')                             
 
 plot_single_stat_predictions('3PA')
 show()
-
