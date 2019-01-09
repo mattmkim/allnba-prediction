@@ -185,12 +185,11 @@ def plot_single_stat_predictions(stat):
     grouped['AllNBA_pred'].plot()
     plt.show(block=False)
 
-plot_single_stat_predictions('FTA)
+plot_single_stat_predictions('FTA')
 plot_single_stat_predictions('STL%')
 plot_single_stat_predictions('TOV%')
 plot_single_stat_predictions('3PA')
 plot_single_stat_predictions('BPM')
 plot_single_stat_predictions('WS')                             
 
-plot_single_stat_predictions('3PA')
 show()
