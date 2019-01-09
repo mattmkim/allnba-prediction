@@ -80,5 +80,6 @@ I decided to visualize how the probability of being selected to the All NBA team
 
 Regardless of the value for the statistic, the mean probability for being selected for the All NBA team was `0.144178`. The WS plot displyaed different behavior, however.
 
+![figure_5](https://user-images.githubusercontent.com/43687112/50882137-d0849600-13b1-11e9-9688-9653ad55ccd4.png)
 
-
+As the value for Win Shares increases, the probability of being selected for the All NBA team decreases, which is counter-intuitive -- one would expect a player with a higher value for Win Shares would have a better chance of being selected for the All NBA team.
