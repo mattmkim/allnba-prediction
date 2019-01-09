@@ -78,5 +78,7 @@ I decided to visualize how the probability of being selected to the All NBA team
 
 ![figure_2](https://user-images.githubusercontent.com/43687112/50881966-4dfbd680-13b1-11e9-8e7b-81e08f99c473.png)
 
-Regardless of the value for the statistic, the mean probability for being selected for the All NBA team was . The WS plot displyaed different behavior, however.
+Regardless of the value for the statistic, the mean probability for being selected for the All NBA team was `0.144178`. The WS plot displyaed different behavior, however.
+
+
 
