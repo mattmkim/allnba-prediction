@@ -177,19 +177,3 @@ for stat in stat_list:
     logit = sm.Logit(modern_stats['AllNBA'], modern_stats[stat])
     result = logit.fit()
     print(np.exp(result.params))
-    predictions['AllNBA_pred'] = result.predict(predictions[stat])
-
-
-def plot_single_stat_predictions(stat):
-    grouped = predictions.loc[:, [stat, 'AllNBA_pred']].groupby([stat]).mean()
-    grouped['AllNBA_pred'].plot()
-    plt.show(block=False)
-
-plot_single_stat_predictions('FTA')
-plot_single_stat_predictions('STL%')
-plot_single_stat_predictions('TOV%')
-plot_single_stat_predictions('3PA')
-plot_single_stat_predictions('BPM')
-plot_single_stat_predictions('WS')                             
-
-show()
