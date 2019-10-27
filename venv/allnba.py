@@ -93,8 +93,6 @@ print(modern_stats[modern_stats["Year"] == 2004][modern_stats["AllNBA"] == 1])
 print(modern_allnba[modern_allnba["Year"] == 2004])
 print(modern_stats[modern_stats["Player"] == "Metta World Peace"])
 
-# 
-
 modern_stats = modern_stats.fillna(0)
 
 # Use support vector machines to predict All NBA selections; normalize data
@@ -102,13 +100,10 @@ modern_stats = modern_stats.fillna(0)
 training = modern_stats[modern_stats["Year"] < 2012]
 test = modern_stats[modern_stats["Year"] >= 2013]
 
-x_train = training.drop(["Unnamed: 0", "Year", "Player", "Pos", "Age", "Tm", "G", "GS", "MP", "Identifier", "AllNBA"], axis=1)
-all_nba_column = np.array(training["AllNBA"].values, copy=False, subok=True, ndim=2).T
-x_train = preprocessing.normalize(x_train)
-x_train = np.column_stack([x_train, all_nba_column])
 y_train = np.array(training["AllNBA"])
+x_train = training.drop(["Unnamed: 0", "Year", "Player", "Pos", "Age", "Tm", "G", "GS", "MP", "Identifier", "AllNBA"], axis=1)
 
-x_test = test.drop(["Unnamed: 0", "Year", "Player", "Pos", "Age", "Tm", "G", "GS", "MP", "Identifier"], axis=1).values
+x_test = test.drop(["Unnamed: 0", "Year", "Player", "Pos", "Age", "Tm", "G", "GS", "MP", "Identifier", "AllNBA"], axis=1).values
 y_test = test["AllNBA"].values
 
 # use grid search to determine parameters
@@ -159,6 +154,7 @@ def plot_feature_weights(svm, names):
 features = ['PER', 'TS%', '3PAr', 'FTr', 'ORB%', 'DRB%', 'TRB%', 'AST%', 'STL%', 'BLK%', 'TOV%', 'USG%', 'OWS', 'DWS',
             'WS', 'WS/48', 'OBPM', 'DBPM', 'BPM', 'VORP', 'FG', 'FGA', 'FG%', '3P', '3PA', '3P%', '2P', '2PA', '2P%',
             'eFG%', 'FT', 'FTA', 'FT%', 'ORB', 'DRB', 'TRB', 'AST', 'STL', 'BLK', 'TOV', 'PF', 'PTS']
+
 plot_feature_weights(sv_classifier, features)
 
 # some stats had high magnitude of feature weight that were unexpected
