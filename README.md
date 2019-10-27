@@ -9,15 +9,18 @@ Every season, a panel of sportswriters and broadcasters selected the 15 best NBA
 Using the sklearn package, I trained a support vector machine using season statistics of players from 1998 - 2012, and tested data from 2013 - 2017. Using cross-validated grid search, I was able to determine the optimal kernel and parameters to use for the support vector machine, and my model ended up predicting all 75 players who were selected to be on the All NBA teams from 2013 - 2017.
 
 ``` 
-             Classification Report: 
               precision    recall  f1-score   support
 
-           0       0.99      0.99      0.99      2296
-           1       0.75      0.68      0.71        75
+ Not All NBA       0.99      0.99      0.99      2296
+     All NBA       0.78      0.69      0.73        75
 
    micro avg       0.98      0.98      0.98      2371
-   macro avg       0.87      0.84      0.85      2371
+   macro avg       0.88      0.84      0.86      2371
 weighted avg       0.98      0.98      0.98      2371
+
+[[2281   15]
+ [  23   52]]
+
 ```
 ### Feature Weights
 
