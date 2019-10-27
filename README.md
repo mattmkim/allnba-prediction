@@ -6,7 +6,7 @@ Every season, a panel of sportswriters and broadcasters selected the 15 best NBA
 
 ### Model
 
-Using the sklearn package, I trained a support vector machine using season statistics of players from 1998 - 2012, and tested data from 2013 - 2017. Using cross-validated grid search, I was able to determine the optimal kernel and parameters to use for the support vector machine, and my model ended up predicting all 75 players who were selected to be on the All NBA teams from 2013 - 2017.
+Using the sklearn package, I trained a support vector machine using season statistics of players from 1998 - 2012, and tested data from 2013 - 2017. Using cross-validated grid search, I was able to determine the optimal kernel and parameters to use for the support vector machine, and my model ended up predicting 52 out of the 75 players selected to the All NBA team from 2013 to 2017.
 
 ``` 
               precision    recall  f1-score   support
