@@ -107,7 +107,7 @@ x_test = test.drop(["Unnamed: 0", "Year", "Player", "Pos", "Age", "Tm", "G", "GS
 y_test = test["AllNBA"].values
 
 # use grid search to determine parameters
-parameters = [{'kernel': ['linear'], 'C': [0.01, 0.1, 1, 10, 100, 1000]}]
+parameters = [{'kernel': ['linear', 'rbf', 'poly'], 'C': [0.01, 0.1, 1, 10, 100, 1000]}]
 scores = ['precision', 'recall']
 
 for score in scores:
